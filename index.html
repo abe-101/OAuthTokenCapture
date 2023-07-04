@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>meetupDiscord - OAuth Token Capture</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .message {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .copy-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .copy-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    function copyToken() {
+      var token = new URLSearchParams(window.location.search).get("code");
+      var tempInput = document.createElement("input");
+      document.body.appendChild(tempInput);
+      tempInput.setAttribute("value", token);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+      alert("Token copied to clipboard! Please send it to the Discord bot.");
+    }
+  </script>
+</head>
+<body>
+  <h1>meetupDiscord - OAuth Token Capture</h1>
+  <div class="container">
+    <p class="message">Please copy the OAuth token and send it to the Discord bot:</p>
+    <button class="copy-button" onclick="copyToken()">Copy Token</button>
+  </div>
+</body>
+</html>
+
